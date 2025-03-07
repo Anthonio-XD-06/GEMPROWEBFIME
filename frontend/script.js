@@ -76,13 +76,13 @@ getEmail();
 
 // Eventos para los botones
 administrarTarjetasButton.addEventListener('click', () => {
-  window.location.href = '/administrar_tarjetas';
+  window.location.href = 'administrar_tarjetas.html';
 });
 registrarCompraButton.addEventListener('click', () => {
-  window.location.href = '/registrar_compra';
+  window.location.href = 'registrar_compra.html';
 });
 simuladorButton.addEventListener('click', () => {
-  window.location.href = '/simulador';
+  window.location.href = 'simulador.html';
 });
 
 cerrarSesionButton.addEventListener('click', () => {
