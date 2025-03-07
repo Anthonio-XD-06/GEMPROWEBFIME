@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', (event) => {
 
   if (email === storedEmail && password === storedPassword) {
     alert('Inicio de sesión exitoso');
-    window.location.href = 'dashboard.html'; // Redirige a la página de inicio
+    window.location.href = 'https://www.facebook.com/'; // Redirige a la página de inicio
   } else {
     alert('Credenciales incorrectas');
   }
