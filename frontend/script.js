@@ -5,15 +5,15 @@ const registerButton = document.getElementById('register-button');
 // Evento para el formulario de inicio de sesión
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const email = document.getElementById('login-email').value; // ID corregido
-  const password = document.getElementById('login-password').value; // ID corregido
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
 
   const storedEmail = localStorage.getItem('emailUsuario');
   const storedPassword = localStorage.getItem('passwordUsuario');
 
   if (email === storedEmail && password === storedPassword) {
     alert('Inicio de sesión exitoso');
-    window.location.href = 'https://www.facebook.com/'; // Redirige a la página de inicio
+    window.location.href = 'dashboard.html'; // Redirige sin parámetros
   } else {
     alert('Credenciales incorrectas');
   }
