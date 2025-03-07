@@ -3,7 +3,6 @@ const loginForm = document.getElementById('login-form');
 const registerButton = document.getElementById('register-button');
 
 // Variables para la URL del backend
-const backendUrl = 'https://gemprowebfime.onrender.com';
 
 // Evento para el formulario de inicio de sesión
 loginForm.addEventListener('submit', async (event) => {
@@ -12,7 +11,7 @@ loginForm.addEventListener('submit', async (event) => {
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch(backendUrl + '/login', {
+        const response = await fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +44,7 @@ const cerrarSesionButton = document.getElementById('cerrar-sesion');
 // Obtener correo del usuario
 async function getEmail() {
     try {
-        const response = await fetch(backendUrl + '/get_email');
+        const response = await fetch('/get_email');
         const data = await response.json();
         userEmail.textContent = data.email;
     } catch (error) {
@@ -80,7 +79,7 @@ const agregarTarjetaButton = document.getElementById('agregar-tarjeta');
 // Obtener tarjetas del usuario
 async function getTarjetas() {
     try {
-        const response = await fetch(backendUrl + '/get_tarjetas');
+        const response = await fetch('/get_tarjetas');
         const tarjetas = await response.json();
         // Mostrar las tarjetas en el contenedor
         tarjetas.forEach(tarjeta => {
@@ -111,7 +110,7 @@ compraForm.addEventListener('submit', async (event) => {
     const interes = document.getElementById('interes').value;
 
     try {
-        await fetch(backendUrl + '/registrar_compra', {
+        await fetch('/registrar_compra', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -136,7 +135,7 @@ simuladorForm.addEventListener('submit', async (event) => {
     const interes = document.getElementById('interes-sim').value;
 
     try {
-        const response = await fetch(backendUrl + '/simulador', {
+        const response = await fetch('/simulador', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
