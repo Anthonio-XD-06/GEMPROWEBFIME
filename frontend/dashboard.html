@@ -6,12 +6,17 @@
 <body>
     <h1>Bienvenido al Dashboard</h1>
     <p id="email-usuario"></p>
-    <p id="password-usuario"></p>
+
+    <div>
+        <h2>Opciones</h2>
+        <button id="simular-button">Simular Compra/Crédito/Préstamo</button><br>
+        <button id="administrar-tarjetas-button">Administrar Tarjetas</button><br>
+        <button id="registrar-compra-button">Registrar Compra/Crédito/Préstamo</button>
+    </div>
 
     <script>
         // Recuperar datos de localStorage
         const email = localStorage.getItem('emailUsuario');
-        const password = localStorage.getItem('passwordUsuario');
 
         // Mostrar datos en la página
         if (email) {
@@ -19,9 +24,20 @@
         } else {
             document.getElementById('email-usuario').textContent = "Correo electrónico no disponible";
         }
-    </script>
-    <script src="script.js" defer></script>
 
-    
+        // Eventos para los botones
+        document.getElementById('simular-button').addEventListener('click', () => {
+            window.location.href = '/simulador'; // Redirige a la página del simulador
+        });
+
+        document.getElementById('administrar-tarjetas-button').addEventListener('click', () => {
+            window.location.href = '/administrar_tarjetas'; // Redirige a la página de administración de tarjetas
+        });
+
+        document.getElementById('registrar-compra-button').addEventListener('click', () => {
+            window.location.href = '/registrar_compra'; // Redirige a la página de registro de compra
+        });
+    </script>
+    <script />
 </body>
 </html>
