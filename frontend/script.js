@@ -5,8 +5,8 @@ const registerButton = document.getElementById('register-button');
 // Evento para el formulario de inicio de sesión
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email = document.getElementById('login-email').value; // ID corregido
+  const password = document.getElementById('login-password').value; // ID corregido
 
   const storedEmail = localStorage.getItem('emailUsuario');
   const storedPassword = localStorage.getItem('passwordUsuario');
@@ -38,67 +38,9 @@ cancelarRegistro.addEventListener('click', () => {
 registroFormInterno.addEventListener('submit', (event) => {
   event.preventDefault(); // Evitar el envío del formulario por defecto
 
-  const nombre = document.getElementById('nombre').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  if (nombre && email && password) {
-    localStorage.setItem('nombreUsuario', nombre);
-    localStorage.setItem('emailUsuario', email);
-    localStorage.setItem('passwordUsuario', password);
-
-    alert('Registro exitoso');
-    registroForm.style.display = 'none';
-  } else {
-    alert('Por favor, complete todos los campos.');
-  }
-});
-
-// ... (resto de tu código) ...
-
-// Obtener elementos del DOM
-const loginForm = document.getElementById('login-form');
-const registerButton = document.getElementById('register-button');
-
-// Evento para el formulario de inicio de sesión
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  const storedEmail = localStorage.getItem('emailUsuario');
-  const storedPassword = localStorage.getItem('passwordUsuario');
-
-  if (email === storedEmail && password === storedPassword) {
-    alert('Inicio de sesión exitoso');
-    window.location.href = '/dashboard'; // Redirige a la página de inicio
-  } else {
-    alert('Credenciales incorrectas');
-  }
-});
-
-// Obtener elementos del DOM
-const registroForm = document.getElementById('registro-form');
-const registroFormInterno = document.getElementById('registro-form-interno');
-const cancelarRegistro = document.getElementById('cancelar-registro');
-
-// Evento para el botón de registro
-registerButton.addEventListener('click', () => {
-  registroForm.style.display = 'block'; // Mostrar el formulario
-});
-
-// Evento para cancelar el registro
-cancelarRegistro.addEventListener('click', () => {
-  registroForm.style.display = 'none'; // Ocultar el formulario
-});
-
-// Evento para el formulario de registro
-registroFormInterno.addEventListener('submit', (event) => {
-  event.preventDefault(); // Evitar el envío del formulario por defecto
-
-  const nombre = document.getElementById('nombre').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const nombre = document.getElementById('registro-nombre').value; // ID corregido
+  const email = document.getElementById('registro-email').value; // ID corregido
+  const password = document.getElementById('registro-password').value; // ID corregido
 
   if (nombre && email && password) {
     localStorage.setItem('nombreUsuario', nombre);
