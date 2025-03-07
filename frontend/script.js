@@ -28,12 +28,38 @@ loginForm.addEventListener('submit', async (event) => {
     }
 });
 
+// Obtener elementos del DOM
+const registerButton = document.getElementById('register-button');
+const registroForm = document.getElementById('registro-form');
+const registroFormInterno = document.getElementById('registro-form-interno');
+const cancelarRegistro = document.getElementById('cancelar-registro');
+
 // Evento para el botón de registro
 registerButton.addEventListener('click', () => {
-    // Redirigir a una página de registro o mostrar un formulario de registro
-    // (Depende de cómo quieras manejar el registro)
+  registroForm.style.display = 'block'; // Mostrar el formulario
 });
 
+// Evento para cancelar el registro
+cancelarRegistro.addEventListener('click', () => {
+  registroForm.style.display = 'none'; // Ocultar el formulario
+});
+
+// Evento para el formulario de registro
+registroFormInterno.addEventListener('submit', (event) => {
+  event.preventDefault(); // Evitar el envío del formulario por defecto
+
+  const nombre = document.getElementById('nombre').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  // Aquí puedes agregar la lógica para enviar los datos al backend o realizar otras acciones
+  console.log('Nombre:', nombre);
+  console.log('Correo Electrónico:', email);
+  console.log('Contraseña:', password);
+
+  // Ocultar el formulario después del envío
+  registroForm.style.display = 'none';
+});
 // Obtener elementos del DOM
 const userEmail = document.getElementById('user-email');
 const administrarTarjetasButton = document.getElementById('administrar-tarjetas');
