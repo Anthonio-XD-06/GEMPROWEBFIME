@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Panel principal</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenido, <span id="user-email"></span></h1>
-        <button id="administrar-tarjetas">Administrar Tarjetas</button><br>
-        <button id="registrar-compra">Registrar Compra</button><br>
-        <button id="simulador">Simular Compra/Préstamo</button><br>
-        <button id="cerrar-sesion">Cerrar Sesión</button>
-        <div class="bottom-buttons">
-            <button id="ver-tarjetas">Ver Tarjetas</button>
-            <button id="ver-compras">Ver Compras</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+    <h1>Bienvenido al Dashboard</h1>
+    <p id="email-usuario"></p>
+    <p id="password-usuario"></p>
+
+    <script>
+        // Recuperar datos de localStorage
+        const email = localStorage.getItem('emailUsuario');
+        const password = localStorage.getItem('passwordUsuario');
+
+        // Mostrar datos en la página
+        if (email) {
+            document.getElementById('email-usuario').textContent = `Correo electrónico: ${email}`;
+        } else {
+            document.getElementById('email-usuario').textContent = "Correo electrónico no disponible";
+        }
+
+        if (password) {
+          document.getElementById('password-usuario').textContent = `Contraseña: ${password}`;
+        } else {
+          document.getElementById('password-usuario').textContent = "Contraseña no disponible";
+        }
+    </script>
 </body>
 </html>
