@@ -1,0 +1,20 @@
+# Archivos generados por Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db # Archivos de base de datos (si usas SQLite)
+flask_session/ # Archivos de sesión de Flask
+venv/ # Entorno virtual (si usas venv)
+.env # Variables de entorno (si usas un archivo .env)
+
+# Archivos de Node.js (si tu frontend usa Node.js)
+node_modules/
+dist/
+build/
+
+# Otros archivos y carpetas que quieras ignorar
+*.log
+*.swp
+*.swo
+.DS_Store # Archivos de macOS
