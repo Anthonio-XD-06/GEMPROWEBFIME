@@ -1,0 +1,16 @@
+/* Estilos básicos */
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+.container {
+  width: 300px;
+  margin: 0 auto;
+}
+input, button {
+  margin: 5px;
+  padding: 10px;
+}
+.bottom-buttons {
+  margin-top: 20px;
+}
