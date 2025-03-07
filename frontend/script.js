@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', (event) => {
 
   if (email === storedEmail && password === storedPassword) {
     alert('Inicio de sesión exitoso');
-    window.location.href = 'dashboard.html'; // Redirige sin parámetros
+    window.location.href = 'frontend/dashboard.html'; // Redirige sin parámetros
   } else {
     alert('Credenciales incorrectas');
   }
