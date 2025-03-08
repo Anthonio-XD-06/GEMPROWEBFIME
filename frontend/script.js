@@ -83,8 +83,6 @@ function getEmail() {
         } else {
             userEmail.textContent = 'Usuario no identificado';
         }
-    } else {
-        console.error('Elemento user-email no encontrado en esta página'); // Muestra un mensaje de error si no se encuentra el elemento
     }
   
 }
