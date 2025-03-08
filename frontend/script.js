@@ -75,6 +75,22 @@ function getEmail() {
 getEmail();
 
 // Eventos para los botones
+
+
+
+// Recuperar datos de localStorage
+        const email = localStorage.getItem('emailUsuario');
+
+        // Mostrar datos en la página
+        if (email) {
+            document.getElementById('email-usuario').textContent = `Correo electrónico: ${email}`;
+        } else {
+            document.getElementById('email-usuario').textContent = "Correo electrónico no disponible";
+        }
+
+
+
+
 administrarTarjetasButton.addEventListener('click', () => {
   window.location.href = 'frontend/administrar_tarjetas.html';
 });
