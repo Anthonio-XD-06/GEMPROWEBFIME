@@ -71,10 +71,11 @@ const registrarCompraButton = document.getElementById('registrar-compra');
 const simuladorButton = document.getElementById('simular-button');
 const cerrarSesionButton = document.getElementById('cerrar-sesion');
 
-const emailUsuario = localStorage.getItem('emailUsuario'); // Recupera el email de localStorage
 
 // Obtener correo del usuario
 function getEmail() {
+  const emailUsuario = localStorage.getItem('emailUsuario'); // Recupera el email de localStorage
+
   if (emailUsuario) {
     userEmail.textContent = emailUsuario;
   } else {
