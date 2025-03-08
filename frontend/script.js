@@ -19,9 +19,9 @@ measurementId: "G-YHB1RK6D7S"
 // Initialize Firebase
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const analytics = getAnalytics(app);
+const auth = firebase.auth(app);
 const db = getFirestore(app);
+const analytics = getAnalytics(app);
 
 
 // Obtener elementos del DOM
