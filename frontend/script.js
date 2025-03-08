@@ -104,8 +104,6 @@ if (simuladorButton) {
 
 if (cerrarSesionButton) {
     cerrarSesionButton.addEventListener('click', () => {
-        localStorage.removeItem('emailUsuario'); // Elimina el email de localStorage al cerrar sesión
-        localStorage.removeItem('passwordUsuario'); // Elimina la contraseña de localStorage al cerrar sesión
         window.location.href = '/'; // Redirige a la página de inicio
     });
 }
