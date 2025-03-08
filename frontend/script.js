@@ -65,7 +65,7 @@ if(registroFormInterno){
 // ... (resto de tu código) ...
 
 // Obtener elementos del DOM
-const administrarTarjetasButton = document.getElementById('administrar-tarjetas');
+const administrarTarjetasButton = document.getElementById('administrar-tarjetas-button');
 const registrarCompraButton = document.getElementById('registrar-compra');
 const simuladorButton = document.getElementById('simular-button');
 const cerrarSesionButton = document.getElementById('cerrar-sesion');
