@@ -140,8 +140,6 @@ const simuladorButton = document.getElementById('simular-button');
 const cerrarSesionButton = document.getElementById('cerrar-sesion');
 
 
-import { collection, query, where, getDocs } from "firebase/firestore";
-
 async function getEmail() { // Agrega async
     const emailUsuario = document.getElementById('user-email').textContent; // Obtén el email del elemento
     const userEmailElement = document.getElementById('user-email');
