@@ -71,27 +71,38 @@ if (cancelarRegistro) {
     });
 }
 
+
+import { collection, addDoc } from "firebase/firestore";
+
 // Evento para el formulario de registro
 if (registroFormInterno) {
-    registroFormInterno.addEventListener('submit', (event) => {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
+    registroFormInterno.addEventListener('submit', async (event) => { // Agrega async
+        event.preventDefault();
 
-        const nombre = document.getElementById('registro-nombre').value; // ID corregido
-        const email = document.getElementById('registro-email').value; // ID corregido
-        const password = document.getElementById('registro-password').value; // ID corregido
+        const nombre = document.getElementById('registro-nombre').value;
+        const email = document.getElementById('registro-email').value;
+        const password = document.getElementById('registro-password').value;
 
         if (nombre && email && password) {
-            localStorage.setItem('nombreUsuario', nombre);
-            localStorage.setItem('emailUsuario', email);
-            localStorage.setItem('passwordUsuario', password);
-
-            alert('Registro exitoso');
-            registroForm.style.display = 'none';
+            try {
+                await addDoc(collection(db, "usuarios"), { // Guarda el nombre en Firestore
+                    nombre: nombre,
+                    email: email,
+                    password: password, // ¡Recuerda no almacenar contraseñas en texto plano!
+                });
+                alert('Registro exitoso');
+                registroForm.style.display = 'none';
+            } catch (error) {
+                console.error("Error al registrar usuario: ", error);
+                alert('Error al registrar usuario. Inténtalo de nuevo.');
+            }
         } else {
             alert('Por favor, complete todos los campos.');
         }
     });
 }
+
+
 
 // Obtener elementos del DOM
 const administrarTarjetasButton = document.getElementById('administrar-tarjetas-button');
