@@ -27,9 +27,11 @@ const registroFormInterno = document.getElementById('registro-form-interno');
 const cancelarRegistro = document.getElementById('cancelar-registro');
 
 // Evento para el botón de registro
-registerButton.addEventListener('click', () => {
-  registroForm.style.display = 'block'; // Mostrar el formulario
-});
+if(registerButton){
+  registerButton.addEventListener('click', () => {
+      registroForm.style.display = 'block'; // Mostrar el formulario
+    });
+}
 
 // Evento para cancelar el registro
 cancelarRegistro.addEventListener('click', () => {
