@@ -33,6 +33,9 @@ const analytics = getAnalytics(app);
 const loginForm = document.getElementById('login-form');
 const registerButton = document.getElementById('register-button');
 
+
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // Evento para el formulario de inicio de sesión
 if (loginForm) {
     loginForm.addEventListener('submit', (event) => {
@@ -40,15 +43,23 @@ if (loginForm) {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
 
-        const storedEmail = localStorage.getItem('emailUsuario');
-        const storedPassword = localStorage.getItem('passwordUsuario');
+        const auth = getAuth(); // Obtén la instancia de auth
 
-        if (email === storedEmail && password === storedPassword) {
-            alert('Inicio de sesión exitoso');
-            window.location.href = 'frontend/dashboard.html'; // Redirige sin parámetros
-        } else {
-            alert('Credenciales incorrectas');
-        }
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Inicio de sesión exitoso
+                const user = userCredential.user;
+                console.log("Usuario inició sesión:", user);
+                alert('Inicio de sesión exitoso');
+                window.location.href = 'frontend/dashboard.html'; // Redirige al dashboard
+            })
+            .catch((error) => {
+                // Error al iniciar sesión
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error("Error al iniciar sesión:", errorCode, errorMessage);
+                alert('Credenciales incorrectas o error al iniciar sesión. Inténtalo de nuevo.');
+            });
     });
 }
 
