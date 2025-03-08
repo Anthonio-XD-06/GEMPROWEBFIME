@@ -60,7 +60,7 @@ registroFormInterno.addEventListener('submit', (event) => {
 const userEmail = document.getElementById('user-email');
 const administrarTarjetasButton = document.getElementById('administrar-tarjetas');
 const registrarCompraButton = document.getElementById('registrar-compra');
-const simuladorButton = document.getElementById('simulador-button');
+const simuladorButton = document.getElementById('simular-button');
 const cerrarSesionButton = document.getElementById('cerrar-sesion');
 
 // Obtener correo del usuario
