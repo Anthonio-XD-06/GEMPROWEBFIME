@@ -34,9 +34,11 @@ if(registerButton){
 }
 
 // Evento para cancelar el registro
-cancelarRegistro.addEventListener('click', () => {
-  registroForm.style.display = 'none'; // Ocultar el formulario
-});
+if(cancelarRegistro){
+  cancelarRegistro.addEventListener('click', () => {
+    registroForm.style.display = 'none'; // Ocultar el formulario
+  });
+}
 
 // Evento para el formulario de registro
 registroFormInterno.addEventListener('submit', (event) => {
