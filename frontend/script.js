@@ -5,6 +5,8 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase
 import { getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
@@ -26,6 +28,7 @@ measurementId: "G-YHB1RK6D7S"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const analytics = getAnalytics(app);
 
 
@@ -35,7 +38,6 @@ const registerButton = document.getElementById('register-button');
 
 
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // Evento para el formulario de inicio de sesión
 if (loginForm) {
     loginForm.addEventListener('submit', (event) => {
