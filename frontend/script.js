@@ -41,24 +41,26 @@ if(cancelarRegistro){
 }
 
 // Evento para el formulario de registro
-registroFormInterno.addEventListener('submit', (event) => {
-  event.preventDefault(); // Evitar el envío del formulario por defecto
-
-  const nombre = document.getElementById('registro-nombre').value; // ID corregido
-  const email = document.getElementById('registro-email').value; // ID corregido
-  const password = document.getElementById('registro-password').value; // ID corregido
-
-  if (nombre && email && password) {
-    localStorage.setItem('nombreUsuario', nombre);
-    localStorage.setItem('emailUsuario', email);
-    localStorage.setItem('passwordUsuario', password);
-
-    alert('Registro exitoso');
-    registroForm.style.display = 'none';
-  } else {
-    alert('Por favor, complete todos los campos.');
-  }
-});
+if(registroFormInterno){
+  registroFormInterno.addEventListener('submit', (event) => {
+    event.preventDefault(); // Evitar el envío del formulario por defecto
+  
+    const nombre = document.getElementById('registro-nombre').value; // ID corregido
+    const email = document.getElementById('registro-email').value; // ID corregido
+    const password = document.getElementById('registro-password').value; // ID corregido
+  
+    if (nombre && email && password) {
+      localStorage.setItem('nombreUsuario', nombre);
+      localStorage.setItem('emailUsuario', email);
+      localStorage.setItem('passwordUsuario', password);
+  
+      alert('Registro exitoso');
+      registroForm.style.display = 'none';
+    } else {
+      alert('Por favor, complete todos los campos.');
+    }
+  });
+}
 
 // ... (resto de tu código) ...
 
