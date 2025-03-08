@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     
-    const app = initializeApp(firebaseConfig);
+    const app = firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth(app);
     const db = getFirestore(app);
     const analytics = getAnalytics(app);
