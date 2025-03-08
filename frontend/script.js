@@ -110,16 +110,29 @@ const registrarCompraButton = document.getElementById('registrar-compra-button')
 const simuladorButton = document.getElementById('simular-button');
 const cerrarSesionButton = document.getElementById('cerrar-sesion');
 
-// Obtener correo del usuario
-function getEmail() {
-    const emailUsuario = localStorage.getItem('emailUsuario'); // Recupera el email de localStorage
-    const userEmail = document.getElementById('user-email');
 
-    if (userEmail) { // Verifica si el elemento existe
-        if (emailUsuario) {
-            userEmail.textContent = emailUsuario;
-        } else {
-            userEmail.textContent = 'Usuario no identificado';
+import { collection, query, where, getDocs } from "firebase/firestore";
+
+async function getEmail() { // Agrega async
+    const emailUsuario = document.getElementById('user-email').textContent; // Obtén el email del elemento
+    const userEmailElement = document.getElementById('user-email');
+
+    if (userEmailElement && emailUsuario) {
+        try {
+            const usuariosRef = collection(db, "usuarios");
+            const q = query(usuariosRef, where("email", "==", emailUsuario));
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+                querySnapshot.forEach((doc) => {
+                    const usuario = doc.data();
+                    userEmailElement.textContent = usuario.nombre; // Muestra el nombre
+                });
+            } else {
+                userEmailElement.textContent = 'Usuario no identificado';
+            }
+        } catch (error) {
+            console.error("Error al obtener el nombre del usuario: ", error);
+            userEmailElement.textContent = 'Error al cargar el nombre';
         }
     }
 }
