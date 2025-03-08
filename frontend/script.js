@@ -65,7 +65,6 @@ if(registroFormInterno){
 // ... (resto de tu código) ...
 
 // Obtener elementos del DOM
-const userEmail = document.getElementById('user-email');
 const administrarTarjetasButton = document.getElementById('administrar-tarjetas');
 const registrarCompraButton = document.getElementById('registrar-compra');
 const simuladorButton = document.getElementById('simular-button');
@@ -75,12 +74,19 @@ const cerrarSesionButton = document.getElementById('cerrar-sesion');
 // Obtener correo del usuario
 function getEmail() {
   const emailUsuario = localStorage.getItem('emailUsuario'); // Recupera el email de localStorage
+  const userEmail = document.getElementById('user-email');
 
-  if (emailUsuario) {
-    userEmail.textContent = emailUsuario;
-  } else {
-    userEmail.textContent = 'Usuario no identificado';
-  }
+  
+    if (userEmail) { // Verifica si el elemento existe
+        if (emailUsuario) {
+            userEmail.textContent = emailUsuario;
+        } else {
+            userEmail.textContent = 'Usuario no identificado';
+        }
+    } else {
+        console.error('Elemento user-email no encontrado en esta página'); // Muestra un mensaje de error si no se encuentra el elemento
+    }
+  
 }
 getEmail();
 
