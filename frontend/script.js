@@ -190,6 +190,11 @@ simuladorForm.addEventListener('submit', (event) => {
   const total_deuda = pago_mensual * plazo;
   const intereses = total_deuda - monto;
 
+
+   // Imprimir los resultados calculados
+  console.log('Pago mensual:', pago_mensual);
+  console.log('Total deuda:', total_deuda);
+  console.log('Intereses:', intereses);
   
   resultadosSim.innerHTML = `
     <p>Pago mensual: ${pago_mensual.toFixed(2)}</p>
