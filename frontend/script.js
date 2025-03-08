@@ -1,3 +1,34 @@
+
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+apiKey: "AIzaSyD7cUNhq1-tF-oeht0MmvlydTU-4LNf7_g",
+authDomain: "prowebfimeproyecto.firebaseapp.com",
+projectId: "prowebfimeproyecto",
+storageBucket: "prowebfimeproyecto.firebasestorage.app",
+messagingSenderId: "1088588778289",
+appId: "1:1088588778289:web:55b92b8de5c654f620fe10",
+measurementId: "G-YHB1RK6D7S"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
 // Obtener elementos del DOM
 const loginForm = document.getElementById('login-form');
 const registerButton = document.getElementById('register-button');
