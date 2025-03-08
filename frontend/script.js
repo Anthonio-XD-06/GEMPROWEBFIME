@@ -79,14 +79,14 @@ getEmail();
 
 
 // Recuperar datos de localStorage
-        const email = localStorage.getItem('emailUsuario');
+const email = localStorage.getItem('emailUsuario');
 
-        // Mostrar datos en la página
-        if (email) {
-            document.getElementById('email-usuario').textContent = `Correo electrónico: ${email}`;
-        } else {
-            document.getElementById('email-usuario').textContent = "Correo electrónico no disponible";
-        }
+// Mostrar datos en la página
+  if (email) {
+    document.getElementById('email-usuario').textContent = `Correo electrónico: ${email}`;
+  } else {
+    document.getElementById('email-usuario').textContent = "Correo electrónico no disponible";
+  }
 
 
 
