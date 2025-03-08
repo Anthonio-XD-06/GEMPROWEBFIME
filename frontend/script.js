@@ -110,15 +110,20 @@ if (emailUsuarioElement) {
 }
 
 
-administrarTarjetasButton.addEventListener('click', () => {
-  window.location.href = 'administrar_tarjetas.html';
-});
-registrarCompraButton.addEventListener('click', () => {
-  window.location.href = 'registrar_compra.html';
-});
-simuladorButton.addEventListener('click', () => {
-  window.location.href = 'simulador.html';
-});
+if (administrarTarjetasButton) {
+    administrarTarjetasButton.addEventListener('click', () => {
+        window.location.href = 'administrar_tarjetas.html';
+    });
+  
+if (registrarCompraButton) {
+    registrarCompraButton.addEventListener('click', () => {
+        window.location.href = 'registrar_compra.html';
+    });
+  
+if (simuladorButton) {
+    simuladorButton.addEventListener('click', () => {
+        window.location.href = 'simulador.html';
+    });
 
 cerrarSesionButton.addEventListener('click', () => {
   localStorage.removeItem('emailUsuario'); // Elimina el email de localStorage al cerrar sesión
