@@ -107,10 +107,7 @@ if (emailUsuarioElement) {
     } else {
         emailUsuarioElement.textContent = "Correo electrónico no disponible";
     }
-} else {
-    console.error("Elemento 'email-usuario' no encontrado en esta página.");
 }
-
 
 
 administrarTarjetasButton.addEventListener('click', () => {
