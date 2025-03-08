@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
             const auth = firebase.auth(); // Obtén la instancia de auth
     
-            auth.signInWithEmailAndPassword(auth, email, password)
+            auth.signInWithEmailAndPassword(email, password)
                 .then((userCredential) => {
                     // Inicio de sesión exitoso
                     const user = userCredential.user;
