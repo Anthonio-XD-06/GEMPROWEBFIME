@@ -177,7 +177,7 @@ if (loginForm) {
 
         if (email === storedEmail && password === storedPassword) {
             alert('Inicio de sesión exitoso');
-            window.location.href = 'dashboard.html'; // Redirige a dashboard.html
+            window.location.href = 'frontend/dashboard.html'; // Redirige a dashboard.html
         } else {
             alert('Credenciales incorrectas');
         }
