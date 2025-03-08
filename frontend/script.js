@@ -3,21 +3,23 @@ const loginForm = document.getElementById('login-form');
 const registerButton = document.getElementById('register-button');
 
 // Evento para el formulario de inicio de sesión
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const email = document.getElementById('login-email').value;
-  const password = document.getElementById('login-password').value;
+if(loginForm){
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+  
+    const storedEmail = localStorage.getItem('emailUsuario');
+    const storedPassword = localStorage.getItem('passwordUsuario');
+  
+    if (email === storedEmail && password === storedPassword) {
+      alert('Inicio de sesión exitoso');
+      window.location.href = 'frontend/dashboard.html'; // Redirige sin parámetros
+    } else {
+      alert('Credenciales incorrectas');
+    }
+  });}
 
-  const storedEmail = localStorage.getItem('emailUsuario');
-  const storedPassword = localStorage.getItem('passwordUsuario');
-
-  if (email === storedEmail && password === storedPassword) {
-    alert('Inicio de sesión exitoso');
-    window.location.href = 'frontend/dashboard.html'; // Redirige sin parámetros
-  } else {
-    alert('Credenciales incorrectas');
-  }
-});
 
 // Obtener elementos del DOM
 const registroForm = document.getElementById('registro-form');
