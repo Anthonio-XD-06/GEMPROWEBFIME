@@ -87,7 +87,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 // Evento para el formulario de registro
 if (registroFormInterno) {
-    registroFormInterno.addEventListener('submit', async (event) => { // Agrega async
+    registroFormInterno.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const nombre = document.getElementById('registro-nombre').value;
@@ -95,18 +95,36 @@ if (registroFormInterno) {
         const password = document.getElementById('registro-password').value;
 
         if (nombre && email && password) {
-            try {
-                await addDoc(collection(db, "usuarios"), { // Guarda el nombre en Firestore
-                    nombre: nombre,
-                    email: email,
-                    password: password, // ¡Recuerda no almacenar contraseñas en texto plano!
+            const auth = getAuth(); // Obtén la instancia de auth
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Registro exitoso
+                    const user = userCredential.user;
+                    console.log("Usuario registrado:", user);
+
+                    // Guarda información adicional en Firestore
+                    addDoc(collection(db, "usuarios"), {
+                        uid: user.uid, // Guarda el UID del usuario
+                        nombre: nombre,
+                        email: email,
+                    })
+                    .then(() => {
+                        alert('Registro exitoso');
+                        registroForm.style.display = 'none';
+                    })
+                    .catch((error) => {
+                        console.error("Error al guardar datos en Firestore:", error);
+                        alert('Registro exitoso, pero hubo un error al guardar los datos adicionales.');
+                    });
+                })
+                .catch((error) => {
+                    // Error al registrar usuario
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Error al registrar usuario:", errorCode, errorMessage);
+                    alert('Error al registrar usuario. Inténtalo de nuevo.');
                 });
-                alert('Registro exitoso');
-                registroForm.style.display = 'none';
-            } catch (error) {
-                console.error("Error al registrar usuario: ", error);
-                alert('Error al registrar usuario. Inténtalo de nuevo.');
-            }
         } else {
             alert('Por favor, complete todos los campos.');
         }
