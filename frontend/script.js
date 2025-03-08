@@ -93,15 +93,23 @@ getEmail();
 
 
 // Recuperar datos de localStorage
+// Obtener correo del usuario desde localStorage
 const email = localStorage.getItem('emailUsuario');
 
-// Mostrar datos en la página
-  if (email) {
-    document.getElementById('email-usuario').textContent = `Correo electrónico: ${email}`;
-  } else {
-    document.getElementById('email-usuario').textContent = "Correo electrónico no disponible";
-  }
+// Obtener el elemento donde se mostrará el correo
+const emailUsuarioElement = document.getElementById('email-usuario');
 
+// Verificar si el elemento existe antes de intentar modificarlo
+if (emailUsuarioElement) {
+    // Verificar si hay un correo electrónico en localStorage
+    if (email) {
+        emailUsuarioElement.textContent = `Correo electrónico: ${email}`;
+    } else {
+        emailUsuarioElement.textContent = "Correo electrónico no disponible";
+    }
+} else {
+    console.error("Elemento 'email-usuario' no encontrado en esta página.");
+}
 
 
 
