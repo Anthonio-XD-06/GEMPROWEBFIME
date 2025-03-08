@@ -28,6 +28,7 @@ measurementId: "G-YHB1RK6D7S"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
 
 // Obtener elementos del DOM
@@ -43,9 +44,9 @@ if (loginForm) {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
 
-        const auth = getAuth(); // Obtén la instancia de auth
+        const auth = firebase.auth(); // Obtén la instancia de auth
 
-        signInWithEmailAndPassword(auth, email, password)
+        auth.signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Inicio de sesión exitoso
                 const user = userCredential.user;
@@ -83,7 +84,7 @@ if (cancelarRegistro) {
 }
 
 
-import { collection, addDoc } from "firebase/firestore";
+/*import { collection, addDoc } from "firebase/firestore";*/
 
 // Evento para el formulario de registro
 if (registroFormInterno) {
@@ -95,7 +96,7 @@ if (registroFormInterno) {
         const password = document.getElementById('registro-password').value;
 
         if (nombre && email && password) {
-            const auth = getAuth(); // Obtén la instancia de auth
+            const auth = firebase.auth(); // Obtén la instancia de auth
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
@@ -139,7 +140,7 @@ const registrarCompraButton = document.getElementById('registrar-compra-button')
 const simuladorButton = document.getElementById('simular-button');
 const cerrarSesionButton = document.getElementById('cerrar-sesion');
 
-
+//obtener el correo
 async function getEmail() { // Agrega async
     const emailUsuario = document.getElementById('user-email').textContent; // Obtén el email del elemento
     const userEmailElement = document.getElementById('user-email');
