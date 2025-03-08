@@ -235,4 +235,4 @@ document.addEventListener('DOMContentLoaded', function(){
             alert('Compra registrada (simulado)');
         });
     }
-}
+})
