@@ -179,6 +179,12 @@ simuladorForm.addEventListener('submit', (event) => {
   const plazo = parseInt(document.getElementById('plazo-sim').value);
   const interes = parseFloat(document.getElementById('interes-sim').value);
 
+    // Imprimir los valores obtenidos
+  console.log('Monto:', monto);
+  console.log('Plazo:', plazo);
+  console.log('Interés:', interes);
+
+  
    // Verificar si los valores son válidos
   if (isNaN(monto) || isNaN(plazo) || isNaN(interes)) {
     resultadosSim.innerHTML = '<p>Por favor, ingrese valores numéricos válidos.</p>';
@@ -188,6 +194,12 @@ simuladorForm.addEventListener('submit', (event) => {
   const total_deuda = pago_mensual * plazo;
   const intereses = total_deuda - monto;
 
+  // Calcular los resultados
+  const pago_mensual = (monto * (interes / 100)) / (1 - Math.pow(1 + (interes / 100), -plazo));
+  const total_deuda = pago_mensual * plazo;
+  const intereses = total_deuda - monto;
+
+  
   resultadosSim.innerHTML = `
     <p>Pago mensual: ${pago_mensual.toFixed(2)}</p>
     <p>Total de deuda: ${total_deuda.toFixed(2)}</p>
