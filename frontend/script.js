@@ -1,3 +1,9 @@
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
+
+
 
 
 // Import the functions you need from the SDKs you need
@@ -8,15 +14,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 document.addEventListener('DOMContentLoaded', function(){    
     //iniciar firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyD7cUNhq1-tF-oeht0MmvlydTU-4LNf7_g",
-      authDomain: "prowebfimeproyecto.firebaseapp.com",
-      projectId: "prowebfimeproyecto",
-      storageBucket: "prowebfimeproyecto.firebasestorage.app",
-      messagingSenderId: "1088588778289",
-      appId: "1:1088588778289:web:55b92b8de5c654f620fe10",
-      measurementId: "G-YHB1RK6D7S"
-    };
 
     
     const app = firebase.initializeApp(firebaseConfig);
