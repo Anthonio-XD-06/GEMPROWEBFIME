@@ -1,11 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, addDoc, query, where, getDocs } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
-
-
-
-
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -14,6 +6,14 @@ import { getAnalytics } from "firebase/analytics";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 document.addEventListener('DOMContentLoaded', function(){    
     //iniciar firebase
+    // Asegúrate de que firebaseConfig esté definido antes de inicializar Firebase
+    if (typeof firebaseConfig !== 'undefined') {
+        firebase.initializeApp(firebaseConfig); // Inicializa Firebase aquí
+
+        // ... el resto de tu código usando firebase.auth(), firebase.firestore(), etc. ...
+    } else {
+        console.error("firebaseConfig no está definido.");
+    }
 
     
     const app = firebase.initializeApp(firebaseConfig);
