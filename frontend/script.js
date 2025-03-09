@@ -7,28 +7,16 @@
 document.addEventListener('DOMContentLoaded', function(){    
     //iniciar firebase
     // Asegúrate de que firebaseConfig esté definido antes de inicializar Firebase
-    if (typeof firebaseConfig !== 'undefined') {
-        firebase.initializeApp(firebaseConfig); // Inicializa Firebase aquí
-
-        // ... el resto de tu código usando firebase.auth(), firebase.firestore(), etc. ...
-    } else {
-        console.error("firebaseConfig no está definido.");
-    }
 
     
     const app = firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth(app);
-    const db = getFirestore(app);
-    const analytics = getAnalytics(app);
-
-
-    
-    
+    const db = firebase.firestore(app);
+    const analytics = firebase.analytics(app);
+        
     // Obtener elementos del DOM
     const loginForm = document.getElementById('login-form');
     const registerButton = document.getElementById('register-button');
-    
-    
     
     // Evento para el formulario de inicio de sesión
     if (loginForm) {
@@ -91,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(){
             if (nombre && email && password) {
                 const auth = firebase.auth(); // Obtén la instancia de auth
     
-                createUserWithEmailAndPassword(auth, email, password)
+                auth.createUserWithEmailAndPassword(email, password)
                     .then((userCredential) => {
                         // Registro exitoso
                         const user = userCredential.user;
