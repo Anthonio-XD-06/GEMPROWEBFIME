@@ -8,4 +8,3 @@ const firebaseConfig = {
   measurementId: "G-YHB1RK6D7S"
 };
 
-window.firebaseConfig = firebaseConfig;
