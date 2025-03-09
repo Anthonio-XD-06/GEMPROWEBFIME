@@ -87,19 +87,25 @@ document.addEventListener('DOMContentLoaded', function() {
                                 registroForm.style.display = 'none';
                             })
                             .catch((error) => {
-                                console.error("Error al guardar datos en Firestore:", error);
-                                alert('Registro exitoso, pero hubo un error al guardar los datos adicionales.');
+                                console.error("Error al guardar los datos adicionales", error);
+                                alert('Error al guardar los datos en firestore.');
                             });
                         })
                         .catch((error) => {
                             const errorCode = error.code;
                             const errorMessage = error.message;
-                            console.error("Error al registrar usuario:", errorCode, errorMessage);
-                            alert('Error al registrar usuario. Inténtalo de nuevo.');
-                        });
-                } else {
-                    alert('Por favor, complete todos los campos.');
-                }
+                            if (error.code === 'auth/email-already-in-use') {
+                                alert('Este correo electrónico ya está en uso.');
+                            } else if (error.code === 'auth/weak-password') {
+                                alert('La contraseña debe tener al menos 6 caracteres.');
+                            } else {
+                            alert('Error al registrar usuario: ' + error.message);
+                            }
+                            console.error("Error al registrar usuario:", error);
+                            });
+                        } else {
+                        alert('Por favor, complete todos los campos.');
+                    }
             });
         }
 
